@@ -1,0 +1,516 @@
+{
+  "note": "Produced by the deterministic mock rules in this repository (provider mock, model deterministic-rules-v1). These cases were not returned by an external language model.",
+  "provider": "mock",
+  "model": "deterministic-rules-v1",
+  "deterministic": true,
+  "source_title": "Transfer money between accounts",
+  "acceptance_criteria": [
+    {
+      "id": "AC-1",
+      "statement": "The customer can transfer an amount between 0.01 and 10000 USD in a single transaction.",
+      "origin": "extracted",
+      "evidence": "The customer can transfer an amount between 0.01 and 10000 USD in a single transaction.",
+      "rationale": "Captured from an acceptance criterion or a Given/When/Then statement."
+    },
+    {
+      "id": "AC-2",
+      "statement": "A transfer that exceeds the daily limit of 25000 USD is rejected with an error.",
+      "origin": "extracted",
+      "evidence": "A transfer that exceeds the daily limit of 25000 USD is rejected with an error.",
+      "rationale": "Captured from an acceptance criterion or a Given/When/Then statement."
+    },
+    {
+      "id": "AC-3",
+      "statement": "A successful transfer shows a confirmation number.",
+      "origin": "extracted",
+      "evidence": "A successful transfer shows a confirmation number.",
+      "rationale": "Captured from an acceptance criterion or a Given/When/Then statement."
+    },
+    {
+      "id": "AC-4",
+      "statement": "Insufficient funds show an error and do not change the balance.",
+      "origin": "extracted",
+      "evidence": "Insufficient funds show an error and do not change the balance.",
+      "rationale": "Captured from an acceptance criterion or a Given/When/Then statement."
+    }
+  ],
+  "missing_information": [
+    {
+      "id": "MISS-1",
+      "statement": "No explicit preconditions were stated.",
+      "origin": "inferred",
+      "evidence": null,
+      "rationale": "No Given clause or prerequisite line was found. A tester would have to assume setup."
+    },
+    {
+      "id": "MISS-2",
+      "statement": "Authentication and authorization rules were not stated.",
+      "origin": "inferred",
+      "evidence": null,
+      "rationale": "The source does not say who may perform the action or how they sign in."
+    }
+  ],
+  "test_cases": [
+    {
+      "title": "Verify The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Functional check for AC-1. Steps restate the criterion and add execution setup.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Open the flow as customer.",
+        "Use inputs that match this criterion: The customer can transfer an amount between 0.01 and 10000 USD in a single transaction.",
+        "Submit the action once and record the response."
+      ],
+      "test_data": {
+        "criterion": "The customer can transfer an amount between 0.01 and 10000 USD in a single transaction."
+      },
+      "expected_result": "The system behaves as the criterion states, and the observable result is recorded.",
+      "test_type": "functional",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "functional",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Accept the valid path for The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Positive scenario grounded in AC-1.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Prepare valid data for: The customer can transfer an amount between 0.01 and 10000 USD in a single transaction.",
+        "Perform the action as customer.",
+        "Confirm the success response and any persisted change."
+      ],
+      "test_data": {
+        "path": "valid"
+      },
+      "expected_result": "The valid action is accepted and the stated outcome is visible.",
+      "test_type": "positive",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "positive",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Boundary values stated for The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Boundary points taken from the numbers in AC-1.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Submit the stated minimum or limit value when one is written.",
+        "Submit the stated maximum when a range is written.",
+        "Record acceptance or rejection for each stated boundary."
+      ],
+      "test_data": {
+        "minimum": "0.01",
+        "maximum": "10000",
+        "unit": "USD"
+      },
+      "expected_result": "Values 0.01 and 10000 USD are accepted when the rest of the input is valid.",
+      "test_type": "boundary",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "boundary",
+        "extracted",
+        "boundary-stated"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Values outside the stated boundary for The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Outside points are a boundary-value suggestion. The source states the range or limit, not the off-by-one result.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Submit a value one unit outside the stated range or limit.",
+        "Record the error text and whether data changed."
+      ],
+      "test_data": {
+        "minimum": "0.01",
+        "maximum": "10000",
+        "unit": "USD",
+        "just_below_minimum": "below the stated minimum by the smallest unit",
+        "just_above_maximum_or_limit": "above the stated maximum or limit by the smallest unit"
+      },
+      "expected_result": "The value outside the stated range or limit is rejected. This expected result is inferred from boundary-value analysis.",
+      "test_type": "boundary",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "boundary",
+        "inferred",
+        "boundary-outside"
+      ],
+      "scenario_origin": "inferred"
+    },
+    {
+      "title": "Verify A transfer that exceeds the daily limit of 25000 USD is rejected with an",
+      "description": "Functional check for AC-2. Steps restate the criterion and add execution setup.",
+      "requirement_ref": "AC-2",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Open the flow as customer.",
+        "Use inputs that match this criterion: A transfer that exceeds the daily limit of 25000 USD is rejected with an error.",
+        "Submit the action once and record the response."
+      ],
+      "test_data": {
+        "criterion": "A transfer that exceeds the daily limit of 25000 USD is rejected with an error."
+      },
+      "expected_result": "The system behaves as the criterion states, and the observable result is recorded.",
+      "test_type": "functional",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "functional",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Reject the guarded path for A transfer that exceeds the daily limit of 25000 USD is rejected with an",
+      "description": "Negative scenario stated by AC-2.",
+      "requirement_ref": "AC-2",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Prepare the condition described here: A transfer that exceeds the daily limit of 25000 USD is rejected with an error.",
+        "Submit the action.",
+        "Check that protected data did not change."
+      ],
+      "test_data": {
+        "path": "rejected"
+      },
+      "expected_result": "The system rejects the action with a clear error and does not apply the protected change.",
+      "test_type": "negative",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "negative",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Boundary values stated for A transfer that exceeds the daily limit of 25000 USD is rejected with an",
+      "description": "Boundary points taken from the numbers in AC-2.",
+      "requirement_ref": "AC-2",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Submit the stated minimum or limit value when one is written.",
+        "Submit the stated maximum when a range is written.",
+        "Record acceptance or rejection for each stated boundary."
+      ],
+      "test_data": {
+        "stated_limit": "25000",
+        "unit": "USD"
+      },
+      "expected_result": "A value at the stated limit of 25000 USD follows the written rule.",
+      "test_type": "boundary",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "boundary",
+        "extracted",
+        "boundary-stated"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Values outside the stated boundary for A transfer that exceeds the daily limit of 25000 USD is rejected with an",
+      "description": "Outside points are a boundary-value suggestion. The source states the range or limit, not the off-by-one result.",
+      "requirement_ref": "AC-2",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Submit a value one unit outside the stated range or limit.",
+        "Record the error text and whether data changed."
+      ],
+      "test_data": {
+        "stated_limit": "25000",
+        "unit": "USD",
+        "just_above_maximum_or_limit": "above the stated maximum or limit by the smallest unit"
+      },
+      "expected_result": "The value outside the stated range or limit is rejected. This expected result is inferred from boundary-value analysis.",
+      "test_type": "boundary",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "boundary",
+        "inferred",
+        "boundary-outside"
+      ],
+      "scenario_origin": "inferred"
+    },
+    {
+      "title": "Verify A successful transfer shows a confirmation number",
+      "description": "Functional check for AC-3. Steps restate the criterion and add execution setup.",
+      "requirement_ref": "AC-3",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Open the flow as customer.",
+        "Use inputs that match this criterion: A successful transfer shows a confirmation number.",
+        "Submit the action once and record the response."
+      ],
+      "test_data": {
+        "criterion": "A successful transfer shows a confirmation number."
+      },
+      "expected_result": "The system behaves as the criterion states, and the observable result is recorded.",
+      "test_type": "functional",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "functional",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Accept the valid path for A successful transfer shows a confirmation number",
+      "description": "Positive scenario grounded in AC-3.",
+      "requirement_ref": "AC-3",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Prepare valid data for: A successful transfer shows a confirmation number.",
+        "Perform the action as customer.",
+        "Confirm the success response and any persisted change."
+      ],
+      "test_data": {
+        "path": "valid"
+      },
+      "expected_result": "The valid action is accepted and the stated outcome is visible.",
+      "test_type": "positive",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "positive",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Verify Insufficient funds show an error and do not change the balance",
+      "description": "Functional check for AC-4. Steps restate the criterion and add execution setup.",
+      "requirement_ref": "AC-4",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Open the flow as customer.",
+        "Use inputs that match this criterion: Insufficient funds show an error and do not change the balance.",
+        "Submit the action once and record the response."
+      ],
+      "test_data": {
+        "criterion": "Insufficient funds show an error and do not change the balance."
+      },
+      "expected_result": "The system behaves as the criterion states, and the observable result is recorded.",
+      "test_type": "functional",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "functional",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Reject the guarded path for Insufficient funds show an error and do not change the balance",
+      "description": "Negative scenario stated by AC-4.",
+      "requirement_ref": "AC-4",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Prepare the condition described here: Insufficient funds show an error and do not change the balance.",
+        "Submit the action.",
+        "Check that protected data did not change."
+      ],
+      "test_data": {
+        "path": "rejected"
+      },
+      "expected_result": "The system rejects the action with a clear error and does not apply the protected change.",
+      "test_type": "negative",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "high",
+      "tags": [
+        "negative",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Edge inputs around The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Empty, blank, and oversized inputs. These values are not quoted from the source.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Submit the primary field empty.",
+        "Submit the primary field as whitespace only.",
+        "Submit a value far longer than a tester would expect a user to enter."
+      ],
+      "test_data": {
+        "empty": "",
+        "whitespace": " ",
+        "oversized": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "expected_result": "The system rejects empty or oversized input with a validation message and leaves stored data unchanged.",
+      "test_type": "edge",
+      "priority": "medium",
+      "risk_level": "medium",
+      "automation_suitability": "low",
+      "tags": [
+        "edge",
+        "inferred"
+      ],
+      "scenario_origin": "inferred"
+    },
+    {
+      "title": "Error handling while completing The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Checks a failure during the action.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Start the primary action with otherwise valid data.",
+        "Cause a dependent save or notification step to fail, if the environment can simulate that.",
+        "Observe the message shown to the actor and the final stored state."
+      ],
+      "test_data": {
+        "fault": "dependent step unavailable"
+      },
+      "expected_result": "The actor sees an error and partial changes are not left in an ambiguous state.",
+      "test_type": "error_handling",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "medium",
+      "tags": [
+        "error_handling",
+        "extracted"
+      ],
+      "scenario_origin": "extracted"
+    },
+    {
+      "title": "Security checks around The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "Security-oriented suggestions. These are review prompts, not a penetration test.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Attempt the action without a session, or with a session for another owner.",
+        "Submit a field value that contains script or query metacharacters as plain data.",
+        "Confirm the response does not expose another actor's data."
+      ],
+      "test_data": {
+        "payload_sample": "<script>alert(1)</script>",
+        "other_owner": "second-account"
+      },
+      "expected_result": "The system keeps the actor inside their own data and treats metacharacters as data, not as commands.",
+      "test_type": "security",
+      "priority": "high",
+      "risk_level": "high",
+      "automation_suitability": "medium",
+      "tags": [
+        "security",
+        "inferred",
+        "suggestion"
+      ],
+      "scenario_origin": "inferred"
+    },
+    {
+      "title": "API scenario for The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "API checks suggested for the same rule. The source does not mention an API. This case is a suggestion.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test.",
+        "An API client and test account are available."
+      ],
+      "steps": [
+        "Send a valid request that represents the criterion.",
+        "Send the same request with a missing required field.",
+        "Compare the status code, error body, and stored state."
+      ],
+      "test_data": {
+        "method": "POST",
+        "auth": "bearer token for the actor"
+      },
+      "expected_result": "The valid request matches the criterion. The invalid request is rejected without a partial write.",
+      "test_type": "api",
+      "priority": "high",
+      "risk_level": "medium",
+      "automation_suitability": "high",
+      "tags": [
+        "api",
+        "inferred",
+        "suggestion"
+      ],
+      "scenario_origin": "inferred"
+    },
+    {
+      "title": "UI scenario for The customer can transfer an amount between 0.01 and 10000 USD in a single",
+      "description": "UI checks for the same rule. The source does not describe a screen. This case is a suggestion.",
+      "requirement_ref": "AC-1",
+      "preconditions": [
+        "The actor 'customer' can reach the feature under test."
+      ],
+      "steps": [
+        "Open the screen a user would use for this action.",
+        "Enter the data from the criterion and submit.",
+        "Check labels, the confirmation or error text, and that the control cannot be submitted twice by a double click."
+      ],
+      "test_data": {
+        "client": "desktop browser"
+      },
+      "expected_result": "The screen shows the same acceptance or rejection the requirement describes, in language the user can act on.",
+      "test_type": "ui",
+      "priority": "medium",
+      "risk_level": "low",
+      "automation_suitability": "medium",
+      "tags": [
+        "ui",
+        "inferred",
+        "suggestion"
+      ],
+      "scenario_origin": "inferred"
+    }
+  ]
+}
